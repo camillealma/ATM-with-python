@@ -1,0 +1,41 @@
+def consultar_saldo(saldo):
+    print(f"Su saldo actual es:", saldo )
+
+def depositar_dinero(saldo):
+    deposito = float(input("Ingrese la cantidad a depositar: "))
+    saldo += deposito
+    print(f"Su nuevo saldo es:", saldo)
+    return saldo
+
+def retirar_dinero(saldo):
+    retiro = float(input("Ingrese la cantidad a retirar:"))
+    if retiro > saldo:
+        print("No tiene el fondo suficiente.")
+    else:
+        saldo -= retiro
+        print(f"Su nuevo saldo es:", saldo )
+    return saldo
+
+def main():
+    saldo = 1000
+    while True:
+        print("\nBienvenido al cajero automatico")
+        print("1. Consultar saldo")
+        print("2. Depositar dinero")
+        print("3. Retirar dinero")
+        print("4. Salir")
+        
+        opcion = input("Seleccione una opcion: ")
+        if opcion == "1":
+            consultar_saldo(saldo)
+        elif opcion == "2":
+            saldo = depositar_dinero(saldo)
+        elif opcion == "3":
+            saldo = retirar_dinero(saldo)
+        elif opcion == "4":
+            print("Gracias por usar el cajero.")
+            break
+        else:
+            print("Opcion invalida.")
+if __name__ == "__main__":
+    main()
